@@ -1,0 +1,83 @@
+Práctica 7.  Streams
+El objetivo de la siguiente práctica es consolidar los conocimientos adquiridos sobre streams en Java, además de ponerlos en práctica. Para ello, se propone realizar las siguientes actividades: 
+
+1.	Desarrolla un programa que realice la lectura de un fichero txt que tenga el siguiente aspecto:
+
+Pepe García 28
+Juan Sánchez 18
+Adrián Hernández 17
+Santiago García 15
+
+Como se puede observar, la estructura del fichero es Nombre “espacio” Primer apellido “espacio” y edad.
+
+El objetivo será realizar la lectura del fichero y escribir en el fichero de salida solo aquellos que tengan más de 17 años, siendo el formato del fichero de salida el siguiente:
+--------------------------
+Listado de alumnos
+--------------------------
+-----Alumno nº1------
+Nombre: Pepe
+Apellido: García
+Edad: 28
+-----Alumno nº2------
+Nombre: Juan
+Apellido: Sánchez
+Edad: 18
+--------------------------
+ 
+2.	Escriu un programa que cridi a un mètode anomenat convertir_en_base, passant com a paràmetre un nombre i la seva base de conversió (les bases a soles poden ser de 2 a 16 per simplificació) i aquesta tornarà una cadena amb el nombre convertit en la base demanada. Com ja sabeu, el procediment és anar dividint entre la seva base fins a què el quocient sigui 0 i anar guardant els residus en ordre invers, amb el detall que si la base es major a 9 n’hi ha que utilitzar lletres. 
+A més, el programa principal serà el encarregat de llegir els nombres mitjançant un fitxer txt d’entrada en el que tindrà el format: “nombre a convertir” espai “base de conversió” per exemple: 11 2 (açó vol dir, converteix el nombre 11 en base 2 (binari)). El mètode tornarà la conversió feta, i el programa principal s’encarregarà d’escriure en la eixida un fitxer amb el següent format: 
+El nombre  200 convertit a en base 16 es C8. 
+Tria les estructures de dades adequades i realitza el tractaments d’excepcions quan correspongui.
+Ajuda: Per exemple, la conversió d’un nombre binari amb aquest mètode és:
+Per al nombre 11 en binari:
+11/2=5 i residu 1(ara tenim: 1)
+5/2=2 i residu 1 (ara tenim: 11)
+2/2=1 i residu 0 (ara tenim: 011) 
+1/2=0 i residu 1 (ara tenim: 1011)
+Per al nombre 200 en binari:
+200 en binari s'escriu: 1 1 0 0 1 0 0 0
+
+El nombre  200 convertit a en base 16 es C8
+El nombre  7219 convertit en base 14 es 28B9
+El nombre  11 convertit a binari es 1011
+ 
+3.	Desarrolla un programa que realice la lectura de un fichero txt que tenga el siguiente aspecto:
+
+Pepe García Hernández 5 7 3 7 10 c-5
+Juan Sánchez  García 4 5 5 7 10 7
+Adrián Hernández Sánchez 9 5 5 7 10 10
+Santiago García Sánchez 10 9 10 9 10 c-5
+
+Como se puede observar, la estructura del fichero es Nombre “espacio” Primer apellido “espacio” Segundo apellido y las notas de cada uno de los módulos (Lenguaje de Marcas, Programación, Entornos de desarrollo, Base de datos, Sistemas Informáticos y FOL).
+
+El objetivo será obtener el boletín de notas de cada uno de los alumnos en un txt diferente. El boletín de notas tendrá el siguiente diseño:
+---------------------------------------------
+Boletín de notas IES FBMOLL
+---------------------------------------------
+Alumno: Pepe García Hernández
+------------------------------   -------
+Módulo                            Nota
+------------------------------   -------
+Lenguaje de marcas         5
+Programación                   7
+Entornos de desarrollo     3
+Base de datos                  7
+Sistemas informáticos      10
+FOL                                  c-5
+------------------------------------------
+Nº de módulos aprobados:     5
+Nº de módulos suspendidos:  0
+Nº de módulos convalidados: 1
+-------------------------------------------
+
+Fecha: 21/03/2018 (“obtener fecha actual”)
+Lugar: Palma de Mallorca
+
+
+4.	A partir del ejercicio anterior,  realiza (lectura/escritura de objetos):
+a.	Una clase que de soporte a los datos almacenados en el fichero de lectura del ejercicio anterior.
+b.	Crea un método que lea el fichero txt con el formato del fichero de entrada del ejercicio anterior (“Pepe García Hernández 5 7 3 7 10 c-5”), almacene la información en el objeto creado en el punto anterior y escriba en el fichero de salida el objeto.
+c.	Crea un método adicional que lea los ficheros creados con los objetos del apartado b, e imprimir en la consola el formato de las notas.
+d.	Revisa el código de tu programa de manera que en el main únicamente se realicen llamadas a métodos, y prepara estos métodos para que en caso de excepción en alguno de los métodos sean tratadas en el main.
+e.	Crea una excepción propia de manera que sea usada en todos los métodos, y esta excepción se caracterizará por incluir: “mensaje general de disculpas al usuario” + “Causa: getCause”+ “Mensaje de error: getMessage”, teniendo en cuenta que si alguno de los dos mensajes (getCause o getMessage) no incluye ninguna información, no lo incluiremos en el mensaje final. 
+f.	Además de imprimir, el mensaje debemos guardar en un fichero log el txt que debe almacenar los diferentes errores que se están produciendo para que esta información pueda ser tratada por el equipo de mantenimiento del S.I. En el log se debe guardar: Fecha + hora + mensaje mostrado al cliente + traza de la pila de ejecución (printStackTrace()).
