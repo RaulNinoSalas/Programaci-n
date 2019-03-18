@@ -1,0 +1,2 @@
+ * El objetivo del siguiente programa es presentar varios ejemplos de distintos
+ * usos de las excepciones
